@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TravelAgency" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-SH9649D\SQLEXPRESS;Initial Catalog=TravelAgency;Integrated Security=True" SettingsObjectName="КП_КПИЯП.Properties.Settings" SettingsPropertyName="TravelAgencyConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.City" Member="City">
+    <Type Name="City">
+      <Column Name="id_city" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="city_name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="City_Hotel" Member="Hotel" ThisKey="id_city" OtherKey="id_city" Type="Hotel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hotel" Member="Hotel">
+    <Type Name="Hotel">
+      <Column Name="id_hotel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_city" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="hotel_name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="class" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pay_on_day" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="desctiption" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Hotel_Tour" Member="Tour" ThisKey="id_hotel" OtherKey="id_hotel" Type="Tour" />
+      <Association Name="City_Hotel" Member="City" ThisKey="id_city" OtherKey="id_city" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="User">
+    <Type Name="User">
+      <Column Name="id_user" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fname" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="login" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="passport" Type="System.String" DbType="NChar(9)" CanBeNull="true" />
+      <Association Name="User_Voucher" Member="Voucher" ThisKey="id_user" OtherKey="id_tourist" Type="Voucher" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tour" Member="Tour">
+    <Type Name="Tour">
+      <Column Name="id_tour" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_hotel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="departure" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Tour_Voucher" Member="Voucher" ThisKey="id_tour" OtherKey="id_tour" Type="Voucher" />
+      <Association Name="Hotel_Tour" Member="Hotel" ThisKey="id_hotel" OtherKey="id_hotel" Type="Hotel" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Voucher" Member="Voucher">
+    <Type Name="Voucher">
+      <Column Name="id_voucher" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_tour" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_tourist" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="kol_chelovek" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="days" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Tour_Voucher" Member="Tour" ThisKey="id_tour" OtherKey="id_tour" Type="Tour" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_Voucher" Member="User" ThisKey="id_tourist" OtherKey="id_user" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+</Database>

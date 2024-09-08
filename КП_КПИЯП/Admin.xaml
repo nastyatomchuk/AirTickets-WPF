@@ -1,0 +1,135 @@
+﻿<Window x:Class="КП_КПИЯП.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:КП_КПИЯП"
+        mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     
+        Title="Admin" WindowStyle="None"  Height="900" Width="1600" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Border HorizontalAlignment="Left" Height="900" VerticalAlignment="Top" Width="1600" BorderBrush="White">
+            <Border.Effect>
+                <BlurEffect Radius="5"/>
+            </Border.Effect>
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF025054" Offset="0"/>
+                    <GradientStop Color="#FFB5D3CA" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border Margin="40,40,40,40" Background="#CCFFFFFF" CornerRadius="40" >
+            <Border.Effect>
+                <BlurEffect Radius="7"/>
+            </Border.Effect>
+        </Border>
+        <ComboBox Name="combobox1" materialDesign:HintAssist.Hint="Выбор таблицы" Margin="58,58,998,0" FontSize="30" FontFamily="Papyrus" Padding="0" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Top" Height="62">
+
+        </ComboBox>
+        <Button Content="Удалить" Margin="937,58,414,0" Height="62" FontSize="28" FontWeight="Bold" Padding="0" VerticalAlignment="Top" Click="Button_Click">
+            <Button.Effect>
+                <DropShadowEffect Opacity="0.4"/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="20" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF76E8DD" Offset="0"/>
+                    <GradientStop Color="#FF1E978C" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Изменить" Margin="1225,58,124,0" Height="62" FontSize="28" FontWeight="Bold" Padding="0" VerticalAlignment="Top" Click="Button_Click_1">
+            <Button.Effect>
+                <DropShadowEffect Opacity="0.6" />
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="20" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF76E8DD" Offset="0"/>
+                    <GradientStop Color="#FF1E978C" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <DataGrid x:Name="datagrid1" Margin="58,156,593,130" SelectionChanged="datagrid1_SelectionChanged">
+        </DataGrid>
+        <Label Name="lab" Margin="1421,51,89,797"></Label>
+
+        <StackPanel Visibility="Visible" x:Name="st1" Margin="1034,156,58,63" >
+            <Image  ToolTip="Для изменения нажжмите на картинку" x:Name="ima" Height="274" Source="гениальный-восход-солнца-пляжа-океана-драматическое-небо-102501525.jpg" PreviewMouseLeftButtonDown="ima_PreviewMouseLeftButtonDown"/>
+            <TextBox x:Name="n" FontSize="24" Padding="0"  materialDesign:HintAssist.Hint="Название отеля" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" Height="64"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="499"/>
+            <TextBox x:Name="r" FontSize="24" Padding="0"  materialDesign:HintAssist.Hint="Рейтинг" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" Height="64"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="499"/>
+            <ComboBox x:Name="strana" FontSize="24" Padding="0,20,0,0"  materialDesign:HintAssist.Hint="Страна" HorizontalAlignment="Left" Height="64"    VerticalAlignment="Top" Width="499"/>
+            <TextBox x:Name="cost" FontSize="24" Padding="0"  materialDesign:HintAssist.Hint="Цена за ночь" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" Height="64" TextWrapping="Wrap"  VerticalAlignment="Top" Width="499"/>
+            <TextBox x:Name="d" TextWrapping="Wrap" FontSize="24" Padding="0,0,0,3"  materialDesign:HintAssist.Hint="Описание" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" Height="85"   VerticalAlignment="Bottom" Width="499" VerticalContentAlignment="Bottom"/>
+        </StackPanel>
+        <StackPanel Visibility="Hidden" x:Name="st2"  Margin="1104,172,124,130">
+            <TextBox x:Name="dep" FontSize="24" Padding="0"  materialDesign:HintAssist.Hint="Вылет" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" Height="64"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="499"/>
+            <Calendar materialDesign:TextFieldAssist.UnderlineBrush="#4DB6AC"  x:Name="calendar" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="406" Width="314"  SelectedDatesChanged="calendar_SelectedDatesChanged" FontSize="36" Visibility="Visible" Margin="30,0,0,0"/>
+
+        </StackPanel>
+        <StackPanel x:Name="st3" Visibility="Hidden" Margin="1034,172,58,113">
+            <TextBox x:Name="cit_name" FontSize="24" Padding="0"  materialDesign:HintAssist.Hint="Страна" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" Height="64"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="499"/>
+        </StackPanel>
+        <StackPanel x:Name="st4" Visibility="Hidden" Margin="1034,172,58,113">
+            <ComboBox x:Name="bron" FontSize="24" Padding="0" HorizontalAlignment="Left" Height="65"    VerticalAlignment="Top" Width="499" />
+
+        </StackPanel>
+        <Button x:Name="new1" Content="Добавить" Margin="658,58,691,0" Height="62" FontSize="28" FontWeight="Bold" Padding="0" VerticalAlignment="Top" Click="Button_Click_2">
+            <Button.Effect>
+                <DropShadowEffect Opacity="0.4"/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="20" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF76E8DD" Offset="0"/>
+                    <GradientStop Color="#FF1E978C" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Отчет" Margin="90,775,1258,0" Height="62" FontSize="28" FontWeight="Bold" Padding="0" VerticalAlignment="Top" Click="Button_Click_3">
+            <Button.Effect>
+                <DropShadowEffect Opacity="0.4"/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="20" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF76E8DD" Offset="0"/>
+                    <GradientStop Color="#FF1E978C" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="{materialDesign:PackIcon Kind=Close, Size=35}" HorizontalAlignment="Left" 
+            Height="56" Margin="1534,0,0,0" VerticalAlignment="Top" Width="66" Click="Button_Click_4"  Background="{x:Null}"
+            FontWeight="Normal" Padding="0" FontSize="48" BorderBrush="{x:Null}"/>
+    </Grid>
+</Window>

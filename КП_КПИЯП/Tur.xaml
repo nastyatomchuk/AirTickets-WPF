@@ -1,0 +1,48 @@
+﻿<Window x:Class="КП_КПИЯП.Tur"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:КП_КПИЯП"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
+        Title="Tur" AllowsTransparency="True" WindowStyle="None" Height="554.5" Width="988" Background="{x:Null}" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Border BorderThickness="3,3,3,3" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="978" CornerRadius="40" BorderBrush="White">
+            <Border.Effect>
+                <BlurEffect Radius="5"/>
+            </Border.Effect>
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF025054" Offset="0"/>
+                    <GradientStop Color="#FFB5D3CA" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border Margin="50,50,50,50" Background="#CCFFFFFF" CornerRadius="40" >
+            <Border.Effect>
+                <BlurEffect Radius="7"/>
+            </Border.Effect>
+        </Border>
+
+        <Grid Margin="50" VerticalAlignment="Center" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="269*"/>
+                <ColumnDefinition Width="181*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image x:Name="im" Source="beregovoe12112019-teaser-n.jpg" Margin="10,33,-27,46"/>
+            </Grid>
+            <Label x:Name="title" Content="название типа" Grid.Column="1" HorizontalAlignment="Left" Margin="40,37,0,0" VerticalAlignment="Top" Height="49" Width="226" FontSize="20"/>
+            <Label x:Name="date" Content="Дата" Grid.Column="1" HorizontalAlignment="Left" Margin="40,91,0,0" VerticalAlignment="Top" Height="44" Width="165" FontSize="20"/>
+            <Label x:Name="stars" Content="*****" Grid.Column="1" HorizontalAlignment="Left" Margin="253,28,0,0" VerticalAlignment="Top" Height="35" Width="84" FontSize="22" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="desk" TextWrapping="Wrap" Text="описание " Margin="40,140,10,102" FontSize="18" IsEnabled="False" Grid.Column="1"/>
+            <Button Content="забронировать" Grid.Column="1" HorizontalAlignment="Left" Margin="40,355,0,0" VerticalAlignment="Top" Width="318" Height="44" Click="Button_Click_1" Background="#B24EB8A7" BorderBrush="{x:Null}"/>
+            <Button Content="{materialDesign:PackIcon Kind=Close, Size=35}" HorizontalAlignment="Left" 
+                    Height="56" Margin="326,-48,-30,0" VerticalAlignment="Top" Width="66"
+                    Grid.Column="1" Click="Button_Click_2" Background="{x:Null}"
+                    FontWeight="Normal" Padding="0" FontSize="48" BorderBrush="{x:Null}"/>
+
+        </Grid>
+    </Grid>
+</Window>

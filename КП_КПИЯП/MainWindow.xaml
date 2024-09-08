@@ -1,0 +1,87 @@
+﻿<Window x:Class="КП_КПИЯП.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:КП_КПИЯП"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" AllowsTransparency="True" WindowStyle="None"  Height="574" Width="926"  WindowStartupLocation="CenterScreen" Background="{x:Null}">
+    <Window.Resources>
+        <Style x:Key="Hatten">
+            <Setter Property="TextElement.FontFamily" Value="Resources/#шрифт.tft" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border Margin="30,30,30,30" CornerRadius="50" BorderBrush="White" BorderThickness="2">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#B2E2E2E2" Offset="1"/>
+                    <GradientStop Color="#FF025054"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <BlurEffect RenderingBias="Quality"/>
+            </Border.Effect>
+        </Border>
+        <Border>
+          
+            <Grid Height="404" Margin="40,40,40,40" Width="699"  >
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="50"/>
+                </Grid.Effect>
+                <Grid.Background>
+                    <SolidColorBrush Color="White" Opacity="0.9"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="335*"/>
+                    <ColumnDefinition Width="364*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="{materialDesign:PackIcon Kind=Close, Size=35}" HorizontalAlignment="Left"  
+                    Height="56" Margin="364,-44,-66,0" VerticalAlignment="Top" Width="66" Click="Button_Click_5"  Background="{x:Null}"
+                    FontWeight="Normal" Padding="0" FontSize="48" BorderBrush="{x:Null}" Grid.Column="1"/>
+                <Image Source="water-3354063_1920.jpg" HorizontalAlignment="Left" Width="335" />
+
+                <Grid x:Name="grid1" MinWidth="300" Margin="4.8,0,10.2,10" MaxWidth="450" Height="394" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Visible">
+                    <StackPanel Margin="0,10,10,-20">
+                        <TextBlock Text="Sign up" FontSize="36" FontWeight="Bold" Margin="0 0 0 0" FontFamily="Segoe Print" TextAlignment="Center" TextDecorations="{x:Null}">
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF56A89A" Offset="0"/>
+                                    <GradientStop Color="#FF004655" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <Button HorizontalAlignment="Right" Content="Войти"  Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF02847C" Click="Button_Click_1" Margin="0,0,-0.4,0"/>
+                        <TextBox x:Name="login_textBox1" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#FF16A560" Height="61" FontSize="20" HorizontalContentAlignment="Stretch" Padding="0,2.7,0,0" Margin="0,0,0.2,0" KeyDown="login_textBox1_KeyDown"/>
+                        <PasswordBox x:Name="password_textBox" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" CaretBrush="#FF04743E" materialDesign:TextFieldAssist.UnderlineBrush="#FF16A560" Height="55" FontSize="20" PasswordChar="♡" Padding="0,0,0,4" Margin="0,0,0.2,0" KeyDown="password_textBox_KeyDown"></PasswordBox>
+                        <PasswordBox x:Name="password2_textBox" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  CaretBrush="#FF04743E" materialDesign:TextFieldAssist.UnderlineBrush="#FF16A560" Height="59" FontSize="20" PasswordChar="♡" Padding="0" Margin="0,0,0.2,0"></PasswordBox>
+                        <Button x:Name="zareg" Content="Зарегестрироваться" Margin="0 10" Background="#FF02847C" BorderBrush="#FF04743E" Click="Button_Click"/>
+                    </StackPanel>
+                </Grid>
+                <Grid x:Name="grid2" MinWidth="300" Margin="335,0,10.2,0" VerticalAlignment="Center" MaxWidth="450" Height="404" Grid.ColumnSpan="2" Visibility="Hidden">
+                    <Button x:Name="on" Content="{materialDesign:PackIcon Eye, Size=20}" HorizontalAlignment="Left" Margin="310,188,0,0" VerticalAlignment="Top" Width="34" Height="32" Padding="0" Background="#4C009688" BorderBrush="{x:Null}" Panel.ZIndex="1" Click="Button_Click_4"/>
+                    <Button x:Name="off" Content="{materialDesign:PackIcon EyeOff, Size=20}" HorizontalAlignment="Left" Margin="310,188,0,0" VerticalAlignment="Top" Width="34" Height="32" Padding="0" Background="#4C009688" BorderBrush="{x:Null}" Panel.ZIndex="1" Click="Button_Click_4" Visibility="Hidden"/>
+                    <StackPanel Margin="0,51,9.8,-20" RenderTransformOrigin="-0.029,0.01" HorizontalAlignment="Right" Width="339" >
+                        <TextBlock Text="Sign up" FontSize="36" FontWeight="Bold" Margin="0 0 0 0" FontFamily="Segoe Print" TextAlignment="Center" TextDecorations="{x:Null}">
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF56A89A" Offset="0"/>
+                                    <GradientStop Color="#FF004655" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <TextBox x:Name="login_textBox" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="#FF16A560" Height="55" FontSize="20" Margin="0,0,0.2,0" />
+                        <PasswordBox x:Name="password_textBox1" materialDesign:HintAssist.Hint="Введите пароль"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" CaretBrush="#FF04743E" materialDesign:TextFieldAssist.UnderlineBrush="#FF16A560" Height="59" FontSize="20" PasswordChar="♡" Margin="0,0,0.2,0"></PasswordBox>
+                        <TextBox x:Name="t_p" Margin="0,-37,0,0" FontSize="20"  Height="37" Background="#FFE7E7E7"  Visibility="Hidden" />
+                        <Button Content="Войти" Margin="0,5,0,10" Background="#FF02847C" BorderBrush="#FF0E9C76" Click="Button_Click_3"/>
+                        <Button HorizontalAlignment="Left" Content="Назад" Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF10404E" Click="Button_Click_2" Height="35" Width="70" Padding="0" Margin="0,-8,0,0" FontSize="16"/>
+                    </StackPanel>
+
+                </Grid>
+                <Image x:Name="d777" HorizontalAlignment="Left" Height="94" Margin="148,169,0,0" VerticalAlignment="Top" Width="77"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
